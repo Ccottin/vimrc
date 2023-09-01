@@ -68,8 +68,7 @@ let g:NERDTreeWinSize=30
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-	  \
+      \ 'colorscheme': 'wombat'
 }
 
 "AUTO-SAVE/AUTO-LOAD FOLD
