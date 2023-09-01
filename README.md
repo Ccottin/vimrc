@@ -6,6 +6,8 @@ https://github.com/junegunn/vim-plug
 
 # Installation
  git clone git@github.com:Ccottin/vimrc.git ~/.vim_runtime
+ 
  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 sh ~/.vim_runtime/vimInstall.sh
