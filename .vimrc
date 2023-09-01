@@ -17,7 +17,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
-"set nocompatible " goes with vim polyglot
+"set nocompatible 
  " goes with vim polyglot
  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CoC it is verry powerful, but so many things i might not use it full potential
@@ -68,7 +68,7 @@ let g:NERDTreeWinSize=30
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat'
+      \ 'colorscheme': 'wombat',
 }
 
 "AUTO-SAVE/AUTO-LOAD FOLD
@@ -127,3 +127,8 @@ if !isdirectory(glob(data_dir . "/plugged"))
 	autocmd VimEnter * NERDTree
 endif
 
+let data_dir = "~/.vim_runtime"
+if !isdirectory(glob(data_dir . "/plugged"))
+	autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+	autocmd VimEnter * NERDTree
+endif

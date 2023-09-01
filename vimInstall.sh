@@ -6,12 +6,6 @@ set -e
 
 cd ~/.vim_runtime
 
-echo 'let data_dir = "~/.vim_runtime"
-if !isdirectory(glob(data_dir . "/plugged"))
-	autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
-	autocmd VimEnter * NERDTree
-endif' >> .vimrc
-
 cp  ./.vimrc ~/
 
 if [ -d ~/.vim ];
