@@ -22,6 +22,9 @@ call plug#end()
  """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CoC it is verry powerful, but so many things i might not use it full potential
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if isdirectory('./node_modules/')
+
 let g:coc_snippet_next = '<tab>'
 
 " Some servers have issues with backup files, see #649
@@ -55,6 +58,10 @@ inoremap <silent><expr> <TAB>
 xmap :f  <Plug>(coc-format-selected)
 nmap :f  <Plug>(coc-format-selected)
 
+
+else
+
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
