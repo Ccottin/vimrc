@@ -8,10 +8,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog', {'branch': 'v1'}
 Plug 'dense-analysis/ale'
 " for nodejs completion 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tmsvg/pear-tree'
 " there is definitely a lot to dig in fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'MaxMEllon/vim-jsx-pretty' for every react project you'll make
 "Plug 'sheerun/vim-polyglot' for better indent
 
@@ -23,45 +23,45 @@ call plug#end()
 " => CoC it is verry powerful, but so many things i might not use it full potential
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-if isdirectory('./node_modules/')
+" if isdirectory('./node_modules/')
 
-let g:coc_snippet_next = '<tab>'
+" let g:coc_snippet_next = '<tab>'
 
 " Some servers have issues with backup files, see #649
-set nowritebackup
+" set nowritebackup
 
 " GoTo code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
-set updatetime=300
+" set updatetime=300
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved
-set signcolumn=yes
+" set signcolumn=yes
 
 " Use K to show documentation in preview window
-nnoremap <silent> K :call ShowDocumentation()<CR>
+" nnoremap <silent> K :call ShowDocumentation()<CR>
 " Map <tab> for trigger completion, completion confirm, snippet expand and jump
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? coc#_select_confirm() :
-			\ coc#expandableOrJumpable() ?
-			\ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-			\ CheckBackspace() ? "\<TAB>" :
-			\ coc#refresh()
+" inoremap <silent><expr> <TAB>
+"			\ pumvisible() ? coc#_select_confirm() :
+"			\ coc#expandableOrJumpable() ?
+"			\ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"			\ CheckBackspace() ? "\<TAB>" :
+"			\ coc#refresh()
 
 " Formatting selected code & if it does not work, change : for <leader> and select a leader touch
-xmap :f  <Plug>(coc-format-selected)
-nmap :f  <Plug>(coc-format-selected)
+" xmap :f  <Plug>(coc-format-selected)
+" nmap :f  <Plug>(coc-format-selected)
 
 
-else
+" else
 
-endif
+" endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd Tree
@@ -75,7 +75,8 @@ let g:NERDTreeWinSize=30
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat'}
+      \ 'colorscheme': 'PaperColor'}
+set laststatus=2
 
 "AUTO-SAVE/AUTO-LOAD FOLD
 au BufWinLeave *.* mkview
@@ -102,6 +103,7 @@ set shiftround
 
 colorscheme pablo
 au BufNewFile,BufRead,BufReadPost *.tpp set syntax=cpp
+au BufNewFile,BufRead,BufReadPost *.s set syntax=nasm
 
 " change cursor display "
 
@@ -126,12 +128,6 @@ try
 catch
 endtry
 
-
-let data_dir = "~/.vim_runtime"
-if !isdirectory(glob(data_dir . "/plugged"))
-	autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
-	autocmd VimEnter * NERDTree
-endif
 
 let data_dir = "~/.vim_runtime"
 if !isdirectory(glob(data_dir . "/plugged"))
