@@ -7,9 +7,10 @@ Plug 'tpope/vim-fugitive'
 " :Flog to see gits' branches and workflow, quit w gq
 Plug 'rbong/vim-flog', {'branch': 'v1'}
 Plug 'dense-analysis/ale'
+Plug 'tmsvg/pear-tree'
+Plug 'jacoborus/tender.vim'
 " for nodejs completion 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tmsvg/pear-tree'
 " there is definitely a lot to dig in fzf
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'MaxMEllon/vim-jsx-pretty' for every react project you'll make
@@ -71,12 +72,26 @@ let NERDTreeShowHidden=0
 let g:NERDTreeWinSize=30
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ALE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" disable errors and warning for assembly files
+autocmd BufRead,BufNewFile,BufReadPost *.s ALEDisable
+
+" lets try auto completion!
+autocmd BufRead,BufNewFile,BufReadPost let g:ale_completion_enabled = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:lightline = {
       \ 'colorscheme': 'PaperColor'}
+
+let g:airline_theme = 'tender'
+
 set laststatus=2
+
+set nobackup
 
 "AUTO-SAVE/AUTO-LOAD FOLD
 au BufWinLeave *.* mkview
@@ -101,7 +116,7 @@ nnoremap <C-q> :tabnext<CR>
 "import code w/ better indentation"
 set shiftround
 
-colorscheme pablo
+colorscheme tender
 au BufNewFile,BufRead,BufReadPost *.tpp set syntax=cpp
 au BufNewFile,BufRead,BufReadPost *.s set syntax=nasm
 
@@ -114,8 +129,11 @@ let &t_SR = "\<esc>[3 q"
 " normal = ExitInsert "
 let &t_EI = "\<esc>[1 q"
 
-"no swapfile "
-"no backup "
+no swapfile 
+no backup 
+
+"completion menu
+set wildmenu
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " thx @ranuytte !
